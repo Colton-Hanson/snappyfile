@@ -8,7 +8,7 @@ const tools = [
     color: "#4fffb0",
     items: [
       { name: "Image Converter", desc: "PNG, JPG, WEBP, HEIC — any format", href: "/tools/image-converter", badge: "Popular", live: true },
-      { name: "Image Compressor", desc: "Shrink file size without losing quality", href: null, badge: "Soon", live: false },
+      { name: "Image Compressor", desc: "Shrink file size without losing quality", href: "/tools/image-compressor", badge: "New", live: true },
       { name: "Image Resizer", desc: "Resize to exact dimensions instantly", href: null, badge: "Soon", live: false },
       { name: "Background Remover", desc: "Remove backgrounds in one click", href: null, badge: "Soon", live: false },
     ]
@@ -73,7 +73,7 @@ export default function Home() {
         </div>
 
         <div style={{ display: 'flex', gap: '48px', justifyContent: 'center', marginTop: '64px', flexWrap: 'wrap' }}>
-          {[['3', 'Live Tools'], ['0', 'Signup Required'], ['100%', 'Browser-Based']].map(([num, label]) => (
+          {[['4', 'Live Tools'], ['0', 'Signup Required'], ['100%', 'Browser-Based']].map(([num, label]) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '32px', fontWeight: 800, fontFamily: 'Syne, sans-serif', color: '#f0f0f8' }}>{num}</div>
               <div style={{ fontSize: '13px', color: '#7070a0', fontWeight: 400 }}>{label}</div>

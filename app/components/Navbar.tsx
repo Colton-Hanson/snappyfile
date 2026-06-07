@@ -18,7 +18,10 @@ export default function Navbar() {
       </Link>
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <Link href="/tools/image-converter" style={{ textDecoration: 'none' }}>
-          <span style={{ color: '#7070a0', fontSize: '14px', fontWeight: 500, padding: '6px 12px', borderRadius: '8px' }}>Image Tools</span>
+          <span style={{ color: '#7070a0', fontSize: '14px', fontWeight: 500, padding: '6px 12px', borderRadius: '8px' }}>Converter</span>
+        </Link>
+        <Link href="/tools/image-compressor" style={{ textDecoration: 'none' }}>
+          <span style={{ color: '#7070a0', fontSize: '14px', fontWeight: 500, padding: '6px 12px', borderRadius: '8px' }}>Compressor</span>
         </Link>
         <Link href="/tools/qr-generator" style={{ textDecoration: 'none' }}>
           <span style={{ color: '#7070a0', fontSize: '14px', fontWeight: 500, padding: '6px 12px', borderRadius: '8px' }}>Link Tools</span>
