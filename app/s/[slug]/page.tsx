@@ -9,7 +9,7 @@ export default async function ShortLinkRedirect({
   const { slug } = await params;
 
   const { data, error } = await supabase
-    .from("short_links")
+    .from("links")
     .select("url, expires_at")
     .eq("slug", slug)
     .single();

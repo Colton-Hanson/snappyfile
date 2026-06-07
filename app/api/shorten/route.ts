@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     const slug = generateSlug();
 
     const { error } = await supabase
-      .from("short_links")
+      .from("links")
       .insert({ slug, url, expires_at: expiresAt });
 
     if (error) {
