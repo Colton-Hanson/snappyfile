@@ -1,6 +1,26 @@
-import { redirect } from "next/navigation";
+import { redirect, notFound } from "next/navigation";
+import { supabase } from "@/lib/supabase";
 
-// This will be replaced with a Supabase lookup
-export default function ShortLinkRedirect({ params }: { params: { slug: string } }) {
-  redirect("/");
+export default async function ShortLinkRedirect({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const { data, error } = await supabase
+    .from("short_links")
+    .select("url, expires_at")
+    .eq("slug", slug)
+    .single();
+
+  if (error || !data) {
+    notFound();
+  }
+
+  if (new Date(data.expires_at) < new Date()) {
+    notFound();
+  }
+
+  redirect(data.url);
 }

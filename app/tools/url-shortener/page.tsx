@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function UrlShortener() {
   const [url, setUrl] = useState("");
+  const [expiry, setExpiry] = useState(24);
   const [shortUrl, setShortUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -18,7 +19,7 @@ export default function UrlShortener() {
       const res = await fetch("/api/shorten", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url, expiry }),
       });
       const data = await res.json();
       if (data.short) setShortUrl(data.short);
@@ -78,6 +79,25 @@ export default function UrlShortener() {
           >
             {loading ? 'Shortening...' : 'Shorten'}
           </button>
+        </div>
+
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', alignItems: 'center' }}>
+          <span style={{ fontSize: '13px', color: '#7070a0' }}>Expires in:</span>
+          {([24, 48, 72] as const).map(h => (
+            <button
+              key={h}
+              onClick={() => setExpiry(h)}
+              style={{
+                padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: 500,
+                border: expiry === h ? '1px solid rgba(255,107,157,0.5)' : '1px solid var(--border)',
+                background: expiry === h ? 'rgba(255,107,157,0.1)' : 'var(--bg2)',
+                color: expiry === h ? '#ff6b9d' : '#7070a0',
+                cursor: 'pointer',
+              }}
+            >
+              {h}h
+            </button>
+          ))}
         </div>
 
         {error && <div style={{ color: '#ff6b9d', fontSize: '14px', marginBottom: '16px' }}>{error}</div>}
