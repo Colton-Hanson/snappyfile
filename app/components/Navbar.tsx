@@ -29,6 +29,9 @@ export default function Navbar() {
         <Link href="/tools/url-shortener" style={{ textDecoration: 'none' }}>
           <span style={{ color: '#7070a0', fontSize: '14px', fontWeight: 500, padding: '6px 12px', borderRadius: '8px' }}>URL Shortener</span>
         </Link>
+        <Link href="/tools/file-upload" style={{ textDecoration: 'none' }}>
+          <span style={{ color: '#7070a0', fontSize: '14px', fontWeight: 500, padding: '6px 12px', borderRadius: '8px' }}>File Upload</span>
+        </Link>
       </div>
     </nav>
   );

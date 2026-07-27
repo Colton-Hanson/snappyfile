@@ -3,6 +3,14 @@ import Navbar from "./components/Navbar";
 
 const tools = [
   {
+    category: "File Tools",
+    emoji: "📁",
+    color: "#ffb84f",
+    items: [
+      { name: "File Upload", desc: "Share any file with a temporary link", href: "/tools/file-upload", badge: "New", live: true },
+    ]
+  },
+  {
     category: "Image Tools",
     emoji: "🖼️",
     color: "#4fffb0",
@@ -56,7 +64,7 @@ export default function Home() {
 
         <h1 className="fade-up-delay" style={{ fontSize: 'clamp(42px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-2px', lineHeight: 1.05, margin: '0 auto 24px', maxWidth: '800px' }}>
           The only file tool<br />
-          <span style={{ color: '#4fffb0' }}>you'll ever need</span>
+          <span style={{ color: '#4fffb0' }}>you&apos;ll ever need</span>
         </h1>
 
         <p className="fade-up-delay-2" style={{ fontSize: '18px', color: '#7070a0', maxWidth: '480px', margin: '0 auto 40px', lineHeight: 1.7, fontWeight: 300 }}>
@@ -73,7 +81,7 @@ export default function Home() {
         </div>
 
         <div style={{ display: 'flex', gap: '48px', justifyContent: 'center', marginTop: '64px', flexWrap: 'wrap' }}>
-          {[['4', 'Live Tools'], ['0', 'Signup Required'], ['100%', 'Browser-Based']].map(([num, label]) => (
+          {[['5', 'Live Tools'], ['0', 'Signup Required'], ['100%', 'Browser-Based']].map(([num, label]) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '32px', fontWeight: 800, fontFamily: 'Syne, sans-serif', color: '#f0f0f8' }}>{num}</div>
               <div style={{ fontSize: '13px', color: '#7070a0', fontWeight: 400 }}>{label}</div>
