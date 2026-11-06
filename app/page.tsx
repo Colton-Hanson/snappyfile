@@ -17,7 +17,7 @@ const tools = [
     items: [
       { name: "Image Converter", desc: "PNG, JPG, WEBP, HEIC — any format", href: "/tools/image-converter", badge: "Popular", live: true },
       { name: "Image Compressor", desc: "Shrink file size without losing quality", href: "/tools/image-compressor", badge: "New", live: true },
-      { name: "Image Resizer", desc: "Resize to exact dimensions instantly", href: null, badge: "Soon", live: false },
+      { name: "Image Resizer", desc: "Resize to exact dimensions instantly", href: "/tools/image-resizer", badge: "New", live: true },
       { name: "Background Remover", desc: "Remove backgrounds in one click", href: null, badge: "Soon", live: false },
     ]
   },
@@ -26,9 +26,8 @@ const tools = [
     emoji: "📄",
     color: "#7c6bff",
     items: [
-      { name: "PDF to Word", desc: "Convert PDF to editable Word doc", href: null, badge: "Soon", live: false },
-      { name: "Word to PDF", desc: "Convert Word documents to PDF", href: null, badge: "Soon", live: false },
-      { name: "Merge PDFs", desc: "Combine multiple PDFs into one", href: null, badge: "Soon", live: false },
+      { name: "PDF ↔ Word", desc: "Convert PDF to Word or Word to PDF", href: null, badge: "Soon", live: false },
+      { name: "Merge PDFs", desc: "Combine multiple PDFs into one", href: "/tools/merge-pdfs", badge: "New", live: true },
       { name: "Compress PDF", desc: "Reduce PDF file size fast", href: null, badge: "Soon", live: false },
     ]
   },
@@ -40,7 +39,7 @@ const tools = [
       { name: "URL Shortener", desc: "Shorten any link instantly", href: "/tools/url-shortener", badge: "Popular", live: true },
       { name: "QR Code Generator", desc: "Generate QR codes for any URL", href: "/tools/qr-generator", badge: "Popular", live: true },
       { name: "Link Preview", desc: "See where a link goes before clicking", href: null, badge: "Soon", live: false },
-      { name: "UTM Builder", desc: "Build tracking links for campaigns", href: null, badge: "Soon", live: false },
+      { name: "UTM Builder", desc: "Build tracking links for campaigns", href: "/tools/utm-builder", badge: "New", live: true },
     ]
   }
 ];
@@ -68,7 +67,7 @@ export default function Home() {
         </h1>
 
         <p className="fade-up-delay-2" style={{ fontSize: '18px', color: '#7070a0', maxWidth: '480px', margin: '0 auto 40px', lineHeight: 1.7, fontWeight: 300 }}>
-          Convert images, compress PDFs, shorten links, generate QR codes — all in one place, all completely free.
+          Convert images, merge PDFs, shorten links, generate QR codes — all in one place, all completely free.
         </p>
 
         <div className="fade-up-delay-3" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -81,7 +80,7 @@ export default function Home() {
         </div>
 
         <div style={{ display: 'flex', gap: '48px', justifyContent: 'center', marginTop: '64px', flexWrap: 'wrap' }}>
-          {[['5', 'Live Tools'], ['0', 'Signup Required'], ['100%', 'Browser-Based']].map(([num, label]) => (
+          {[[tools.flatMap(group => group.items).filter(tool => tool.live).length, 'Live Tools'], ['0', 'Signup Required'], ['100%', 'Browser-Based']].map(([num, label]) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '32px', fontWeight: 800, fontFamily: 'Syne, sans-serif', color: '#f0f0f8' }}>{num}</div>
               <div style={{ fontSize: '13px', color: '#7070a0', fontWeight: 400 }}>{label}</div>
